@@ -69,11 +69,12 @@
             box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
         }
 
-        .image-container {
+       .image-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            grid-template-columns: repeat(3, 200px);  /* 3 images per row, 200px each */
             gap: 10px;
             margin-top: 15px;
+            justify-content: center; /* Center images horizontally */
         }
 
         img {
