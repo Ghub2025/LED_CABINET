@@ -121,8 +121,8 @@
         }
 
         .modal-content {
-            max-width: 90%;
-            height: auto;
+            max-width: 600px; /* Set image size to 600x600 */
+            height: 600px;
             margin: auto;
             border-radius: 10px;
         }
@@ -164,11 +164,23 @@
 
         .top-title {
             position: fixed;
-            top: 35px;
-            left: 75px;
-            font-size: 10px;
+            top: 10px;
+            left: 10px;
+            font-size: 20px;
             color: white;
             z-index: 10;
+        }
+
+        .whatsapp-link {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .whatsapp-logo {
+            width: 30px;
+            margin-right: 10px;
         }
     </style>
 </head>
@@ -202,14 +214,18 @@
     <div id="fullImageModal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
         <img id="fullImage" class="modal-content">
+        <div class="whatsapp-link">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="whatsapp-logo" alt="WhatsApp Logo">
+            <a href="https://wa.me/97142662246" target="_blank" style="color: white; font-size: 18px;">Contact us for more information on WhatsApp</a>
+        </div>
         <div class="back-button" onclick="closeModal()">Back to Gallery</div>
     </div>
 
-    <!-- Footer with WhatsApp -->
+    <!-- Footer with WhatsApp (No Number Shown) -->
     <footer class="footer">
         <p>Contact us for more information: 
-            <a href="https://wa.me/97142662246" target="_blank" style="color: green;">
-                WhatsApp +97142662246
+            <a href="https://wa.me/97142662246" target="_blank" style="color: white;">
+                WhatsApp
             </a>
         </p>
     </footer>
