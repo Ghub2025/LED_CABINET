@@ -4,16 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toggle Light</title>
-    <link rel="stylesheet" href="styles.css">
     <style>
         body {
             text-align: center;
-            margin: 15px auto;
+            margin: 10px;
             background-color: black;
             border: 0.5px dotted orange;
-            width: 100%;
-            max-width: auto;
-            height: auto;
             padding: 10px;
         }
 
@@ -58,10 +54,6 @@
             background: red;
             border-radius: 50%;
             transition: background 0.3s, box-shadow 0.3s;
-            box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         input:checked + .switch + .light-indicator {
@@ -71,199 +63,42 @@
 
         .image-container {
             display: grid;
-            grid-template-columns: repeat(3, 220px);  /* 3 images per row, 240px each */
+            grid-template-columns: repeat(3, 1fr);
             gap: 10px;
-            margin-top: 35px;
-            justify-content: center; /* Center images horizontally */
+            margin-top: 20px;
+            justify-items: center;
         }
 
         img {
             width: 100%;
+            max-width: 220px;
             height: auto;
             object-fit: cover;
             cursor: pointer;
         }
 
         /* Mobile responsiveness */
-        @media (max-width: 480px) {
-            body {
-                margin: 10px;
-                padding: 5px;
-            }
-
-            .switch {
-                width: 50px;
-                height: 20px;
-            }
-
-            .switch::before {
-                width: 16px;
-                height: 16px;
-            }
-
+        @media (max-width: 768px) {
             .image-container {
-                grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+                grid-template-columns: repeat(2, 1fr);
             }
-        }
-
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 10;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            max-width: 250px; /* Set image size to 250x250 */
-            height: 250px;
-            margin: auto;
-            border-radius: 10px;
-        }
-
-        .close {
-            position: absolute;
-            top: 10px;
-            right: 25px;
-            color: white;
-            font-size: 20px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .back-button {
-            position: absolute;
-            bottom: 30px;
-            left: 30%;
-            transform: translateX(-50%);
-            background-color: #ff6600;
-            padding: 10px 20px;
-            color: white;
-            font-size: 10px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        /* Footer Styles */
-        .footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-        }
-
-        .top-title {
-            position: fixed;
-            top: 35px;
-            left: 25px;
-            font-size: 10px;
-            color: white;
-            z-index: 10;
-        }
-
-        .whatsapp-link {
-            margin-top: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .whatsapp-logo {
-            width: 25px;
-            margin-right: 10px;
         }
     </style>
 </head>
 <body>
-    <!-- Top Left Title -->
-    <div class="top-title">
-        Click on image to see clear picture
-    </div>
-
-    <!-- Switch and Indicator -->
     <div class="switch-container">
         <input type="checkbox" id="toggleSwitch" style="display: none;">
         <label class="switch" for="toggleSwitch"></label>
         <span class="light-indicator"></span>
     </div>
 
-    <!-- Image Gallery -->
     <div class="image-container">
-        <img class="toggleImage" src="images/Board39.jpg" alt="Light Off" onclick="openFullImage('images/Board39.jpg')">
-        <img class="toggleImage" src="images/Board38.jpg" alt="Light Off" onclick="openFullImage('images/Board38.jpg')">
-        <img class="toggleImage" src="images/Board36.jpg" alt="Light Off" onclick="openFullImage('images/Board36.jpg')">
-        <img class="toggleImage" src="images/Board34.jpg" alt="Light Off" onclick="openFullImage('images/Board34.jpg')">
-        <img class="toggleImage" src="images/Board32.jpg" alt="Light Off" onclick="openFullImage('images/Board32.jpg')">
-        <img class="toggleImage" src="images/Board30.jpg" alt="Light Off" onclick="openFullImage('images/Board30.jpg')">
-        <img class="toggleImage" src="images/Board27.jpg" alt="Light Off" onclick="openFullImage('images/Board27.jpg')">
-        <img class="toggleImage" src="images/Board23.jpg" alt="Light Off" onclick="openFullImage('images/Board23.jpg')">
-        <img class="toggleImage" src="images/Board11.jpg" alt="Light Off" onclick="openFullImage('images/Board11.jpg')">
+        <img src="images/Board39.jpg" alt="Light Off">
+        <img src="images/Board38.jpg" alt="Light Off">
+        <img src="images/Board36.jpg" alt="Light Off">
+        <img src="images/Board34.jpg" alt="Light Off">
+        <img src="images/Board32.jpg" alt="Light Off">
+        <img src="images/Board30.jpg" alt="Light Off">
     </div>
-
-    <!-- Full Image View Modal -->
-    <div id="fullImageModal" class="modal">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <img id="fullImage" class="modal-content">
-        <div class="whatsapp-link">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="whatsapp-logo" alt="WhatsApp Logo">
-            <a href="https://wa.me/97142662246" target="_blank" style="color: white; font-size: 18px;">Contact us for more information on WhatsApp</a>
-        </div>
-        <div class="back-button" onclick="closeModal()">Back to Gallery</div>
-    </div>
-
-    <!-- Footer with WhatsApp (No Number Shown) -->
-    <footer class="footer">
-        <p>Contact us for more information: 
-            <a href="https://wa.me/97142662246" target="_blank" style="color: green;">
-                WhatsApp
-            </a>
-        </p>
-    </footer>
-
-    <script>
-        // Image Switcher Script
-        document.getElementById("toggleSwitch").addEventListener("change", function() {
-            let images = document.querySelectorAll(".toggleImage");
-            let pathsOff = [
-                "images/Board39.jpg", "images/Board38.jpg", "images/Board36.jpg",
-                "images/Board34.jpg", "images/Board32.jpg", "images/Board30.jpg",
-                "images/Board27.jpg", "images/Board23.jpg", "images/Board11.jpg"
-            ];
-            let pathsOn = [
-                "images/Board40.jpg", "images/Board37.jpg", "images/Board35.jpg",
-                "images/Board33.jpg", "images/Board31.jpg", "images/Board29.jpg",
-                "images/Board25.jpg", "images/Board22.jpg", "images/Board01.jpg"
-            ];
-
-            images.forEach((img, index) => {
-                img.src = this.checked ? pathsOn[index] : pathsOff[index];
-                img.alt = this.checked ? "Light On" : "Light Off";
-            });
-        });
-
-        // Open the full image in a modal
-        function openFullImage(imageSrc) {
-            const modal = document.getElementById('fullImageModal');
-            const modalImage = document.getElementById('fullImage');
-            modal.style.display = "flex";
-            modalImage.src = imageSrc;
-        }
-
-        // Close the modal
-        function closeModal() {
-            const modal = document.getElementById('fullImageModal');
-            modal.style.display = "none";
-        }
-    </script>
 </body>
 </html>
