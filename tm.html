@@ -103,5 +103,25 @@
         <img src="images/Board32.jpg" alt="Light Off">
         <img src="images/Board30.jpg" alt="Light Off">
     </div>
+    <script>
+        document.getElementById("toggleSwitch").addEventListener("change", function() {
+            let images = document.querySelectorAll(".toggleImage");
+            let pathsOff = [
+                "images/Board39.jpg", "images/Board38.jpg", "images/Board36.jpg",
+                "images/Board34.jpg", "images/Board32.jpg", "images/Board30.jpg",
+                "images/Board27.jpg", "images/Board23.jpg", "images/Board11.jpg"
+            ];
+            let pathsOn = [
+                "images/Board40.jpg", "images/Board37.jpg", "images/Board35.jpg",
+                "images/Board33.jpg", "images/Board31.jpg", "images/Board29.jpg",
+                "images/Board25.jpg", "images/Board22.jpg", "images/Board01.jpg"
+            ];
+            
+            images.forEach((img, index) => {
+                img.src = this.checked ? pathsOn[index] : pathsOff[index];
+                img.alt = this.checked ? "Light On" : "Light Off";
+            });
+        });
+    </script>
 </body>
 </html>
